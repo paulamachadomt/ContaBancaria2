@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ContaBancaria2
 {
@@ -10,21 +6,19 @@ namespace ContaBancaria2
     {
         static void Main(string[] args)
         {
-            var conta = CriarConta();
+            //Aciona o método estático de abertura da conta e imprime os dados da conta 
+            ContaBancaria contaBancaria = ContaBancaria.AberturaContaBancaria();
 
-        }
-        public static Conta CriarConta()
-        {
-            Console.Write("Entre com o número da conta: ");
-            int numero = int.Parse(Console.ReadLine());
+            //Depósito 
+            contaBancaria.Deposito(contaBancaria);
 
-            Console.Write("Entre com o nome do titular da conta: ");
-            string titular = Console.ReadLine();
 
-            Console.Write("Entre com o saldo inicial: ");
-            double saldo = double.Parse(Console.ReadLine());
+            //Saque
+            contaBancaria.Saque(contaBancaria);
 
-            return new Conta(numero, titular, saldo);
+
+            //Fim
+            Console.ReadLine();
         }
     }
 }
